@@ -1,0 +1,122 @@
+.header {
+    padding-top: 24px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ececec;
+  }
+  
+  .header__container {
+    @extend %align-items;
+  }
+  
+  .header-navigation {
+    @extend %align-items;
+  }
+  .header-menu {
+    display: flex;
+    /* align-items: center; */
+  }
+  .header-contacts-list {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+  }
+  .first-logo {
+    margin-right: 93px;
+  }
+  .header-menu__item {
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+  .header-contacts-list__item {
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+  
+  .first-logo__header {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 1.19;
+    color: var(--accent-color);
+  }
+  .first-logo__word {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 1.19;
+    color: #000000;
+  }
+  
+  .header-menu__link {
+    position: relative;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.02em;
+    color: var(--primary-header-text-color);
+    transition: color 250ms var(--timing-function);
+    &:hover, &:focus {
+      color: var(--accent-color);
+    }
+  }
+  
+  .current {
+    &::after {
+      content: "";
+    
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    
+      display: block;
+      width: 100%;
+      height: 4px;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+      bottom: -32px;
+    }
+  }
+
+   .header-menu {
+    .header-menu__link {
+      &.link.current {
+        color: var(--accent-color);
+      }
+    }
+  }
+    
+  .header-contacts-list__link {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.02em;
+    color: var(--secondary-header-text-color);
+    @extend %align-items;
+    transition: color 250ms var(--timing-function);
+    &:hover,
+    &:focus {
+      color: var(--accent-color);
+    }
+  }
+  
+  .header-contacts-envelope {
+    width: 16px;
+    height: 12px;
+    fill: var(--secondary-header-text-color);
+    margin-right: 10px;
+    transition: fill 250ms var(--timing-function);
+    .header-contacts-list__link:hover &,
+    .header-contacts-list__link:focus & {
+      fill: var(--accent-color);
+    }
+    &.smartphone {
+      width: 10px;
+      height: 16px;
+      transition: fill 250ms var(--timing-function);
+    }
+  }
+  
