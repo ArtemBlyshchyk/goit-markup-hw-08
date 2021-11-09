@@ -1,54 +1,94 @@
 .header {
-    padding-top: 24px;
-    padding-bottom: 25px;
+    position: relative;
+    padding-top: 16px;
+    padding-bottom: 16px;
     border-bottom: 1px solid #ececec;
+    @media  screen and (min-width: 768px) {
+      padding-top: 26px;
+      padding-bottom: 26px;
+    }
+    @media  screen and (min-width: 768px) {
+      padding-top: 24px;
+      padding-bottom: 25px;
   }
+}
   
   .header__container {
-    @extend %align-items;
+    display: flex;
+    align-items: center;
   }
   
   .header-navigation {
-    @extend %align-items;
+    display: flex;
+    align-items: center;
   }
   .header-menu {
     display: flex;
     /* align-items: center; */
   }
   .header-contacts-list {
-    display: flex;
     margin-left: auto;
-    align-items: center;
+    // justify-content: center;
+    @media screen and (min-width: 1200px) {
+      display: flex;
+      margin-left: auto;
+      align-items: center;
+    }  
   }
+
   .first-logo {
     margin-right: 93px;
   }
   .header-menu__item {
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: flex;
+    }
     &:not(:last-child) {
       margin-right: 50px;
     }
   }
   .header-contacts-list__item {
-    &:not(:last-child) {
-      margin-right: 50px;
+    display: none;
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      display: flex;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
     }
+    @media screen and (min-width: 1200px) {
+      display: flex;
+      text-align: center;
+      &:not(:last-child) {
+        margin-right: 50px;
+      }
+    }
+    
   }
   
   .first-logo__header {
     font-family: "Raleway", sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 26px;
-    line-height: 1.19;
+    font-size: 24px;
+    line-height: calc(28 / 24);
     color: var(--accent-color);
+    @media screen and (min-width: 1200px) {
+      font-size: 26px;
+      line-height: 1.19;
+    }
   }
   .first-logo__word {
     font-family: "Raleway", sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 26px;
-    line-height: 1.19;
+    font-size: 24px;
+    line-height: calc(28 / 24);
     color: #000000;
+    @media screen and (min-width: 1200px) {
+      font-size: 26px;
+      line-height: 1.19;
+    }
   }
   
   .header-menu__link {
@@ -91,23 +131,28 @@
     
   .header-contacts-list__link {
     font-weight: 500;
-    font-size: 14px;
-    line-height: 1.14;
+    font-size: 12px;
+    line-height: calc(14 / 12);
     letter-spacing: 0.02em;
     color: var(--secondary-header-text-color);
-    @extend %align-items;
+    display: flex;
+    align-items: center;
     transition: color 250ms var(--timing-function);
     &:hover,
     &:focus {
       color: var(--accent-color);
     }
+    @media screen and (min-width: 1200px) {
+      font-size: 14px;
+      line-height: calc(16 / 14);
+    }
   }
   
   .header-contacts-envelope {
-    width: 16px;
-    height: 12px;
+    width: 14px;
+    height: 10px;
     fill: var(--secondary-header-text-color);
-    margin-right: 10px;
+    margin-right: 8px;
     transition: fill 250ms var(--timing-function);
     .header-contacts-list__link:hover &,
     .header-contacts-list__link:focus & {
@@ -115,8 +160,49 @@
     }
     &.smartphone {
       width: 10px;
-      height: 16px;
+      height: 14px;
       transition: fill 250ms var(--timing-function);
     }
+    @media screen and (min-width: 1200px) {
+      width: 16px;
+      height: 12px;
+      margin-right: 10px;
+      &.smartphone {
+        height: 16px;
+      }
+    }
   }
-  
+
+  .mob-menu {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+    & .icon-cross {
+      display: none;
+    }
+    &.is-open .icon-cross {
+      display: block;
+    }
+    &.is-open .icon-menu {
+      display: none;
+    }
+  }
+
+  .mob-menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color:violet;
+    padding: 48px 10px 48px 40px;
+    text-align: left;
+    &.is-open {
+      display: block;
+    }
+  }
